@@ -1,0 +1,92 @@
+.main-header{
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    margin-bottom: 10vh;
+}
+
+.main-header img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    transition: transform .5s ease;
+}
+
+.main-header:hover img{
+    transform: scale(1.05);
+}
+
+.main-titles{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 8vw;
+    font-size: 1.5rem;
+}
+
+.main-titles h1{
+    font-size: 5rem;
+    color: rgba(245, 245, 245);
+    opacity: 0.5;
+}
+
+.category-title{
+    width: 100%;
+    bottom: 12vh;
+    padding-left: 8vh;
+    margin-bottom: 20px;
+}
+
+.row-container{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: blue;
+}
+
+.row{
+    width: 95%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+.grid-trending{
+    height: 0;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.grid-container::-webkit-scrollbar{
+    background: whitesmoke;
+}
+
+.trend-card{
+    width: 300px;
+    height: 450px;
+    background: crimson;
+    overflow: hidden;
+}
+
+.trend-card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    transition: transform .3s ease;
+}
+
+.trend-card:hover img{
+    transform: scale(1.05);
+}

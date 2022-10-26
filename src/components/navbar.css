@@ -1,0 +1,30 @@
+.navbar{
+    width: 100%;
+    height: 8vh;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8vw;
+}
+
+.home-title{
+    font-size: 3rem;
+    color: whitesmoke;
+}
+
+.home-title span{
+    color: crimson;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav a{
+    text-decoration: none;
+    color: whitesmoke;
+}

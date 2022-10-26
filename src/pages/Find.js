@@ -18,7 +18,7 @@ export default function Find() {
     <div>
       <Navbar />
       <div className="top-box">
-        <h1 className="main-title">MovieHub.</h1>
+        <h1 className="main-title">Faites votre recherche</h1>
         <input
           onChange={(e) => setSearchData(e.target.value)}
           type="text"

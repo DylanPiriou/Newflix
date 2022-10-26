@@ -1,7 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Card from "../components/Card";
 import Navbar from "../components/Navbar";
+import TopRated from "../components/TopRated";
 import "./home.css";
+import Latests from "../components/Latests";
 
 export default function Home() {
   const [trendData, setTrendData] = useState([]);
@@ -9,7 +12,7 @@ export default function Home() {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/trending/movie/week?api_key=ed82f4c18f2964e75117c2dc65e2161d`
+        `https://api.themoviedb.org/3/trending/movie/week?api_key=2e0a9e72249514e45f19f77ee9930761`
       )
       .then((res) => setTrendData(res.data.results));
   }, []);
@@ -17,23 +20,16 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <div className="main-header">
-        <img
-          src={"https://image.tmdb.org/t/p/original/" + trendData.backdrop_path}
-          alt="img film"
-        />
-        <div className="main-titles">
-          <h1>{trendData.title}</h1>
-          <p>Disponible maintenant en 4K!</p>
-        </div>
-      </div>
+      {trendData.slice(1, 2).map((movie, index) => (
+        <Card key={index} movie={movie} />
+      ))}
       <div className="row-container">
         <h2 className="category-title">Tendances cette semaine</h2>
         <div className="row">
-          <div className="grid-trending">
+          <div className="movie-container">
             {trendData.map((trend) => {
               return (
-                <div className="trend-card">
+                <div className="movie-card">
                   <img
                     src={
                       "https://image.tmdb.org/t/p/original/" + trend.poster_path
@@ -46,6 +42,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <TopRated />
+      <Latests />
     </div>
   );
 }

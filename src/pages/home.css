@@ -2,7 +2,7 @@
     width: 100%;
     height: 80vh;
     overflow: hidden;
-    margin-bottom: 10vh;
+    margin-bottom: 3vh;
 }
 
 .main-header img{
@@ -29,7 +29,7 @@
 
 .main-titles h1{
     font-size: 5rem;
-    color: rgba(245, 245, 245);
+    color: crimson;
     opacity: 0.5;
 }
 
@@ -38,16 +38,16 @@
     bottom: 12vh;
     padding-left: 8vh;
     margin-bottom: 20px;
+    color: crimson;
 }
 
 .row-container{
     width: 100%;
-    height: 80vh;
+    height: 65vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: blue;
 }
 
 .row{
@@ -57,36 +57,4 @@
     align-items: center;
     margin: 0 auto;
     overflow-x: auto;
-}
-
-.grid-trending{
-    height: 0;
-    margin: 20px auto;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.grid-container::-webkit-scrollbar{
-    background: whitesmoke;
-}
-
-.trend-card{
-    width: 300px;
-    height: 450px;
-    background: crimson;
-    overflow: hidden;
-}
-
-.trend-card img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background-position: center;
-    background-size: cover;
-    transition: transform .3s ease;
-}
-
-.trend-card:hover img{
-    transform: scale(1.05);
 }

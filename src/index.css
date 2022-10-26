@@ -23,18 +23,19 @@ body{
 
 .main-title{
     color: crimson;
-
     padding: 50px;
-    font-size: 10rem;
+    margin: 5vh;
+    font-size: 5rem;
 }
 
 input[type="text"]{
     margin: 0 auto;
-    width: 250px;
-    height: 40px;
+    width:400px;
+    height: 60px;
     border-radius: 25px;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
+    margin-bottom: 5vh;
 }
 
 .grid-container{

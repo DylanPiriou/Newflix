@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import "./find.css";
+import "./findFav.css";
+import Like from "../components/Like";
 
 export default function Find() {
   const [objData, setObjData] = useState([]);
@@ -20,7 +21,7 @@ export default function Find() {
     <div>
       <Navbar />
       <div className="top-box">
-        <h1 className="find-title">Faites votre recherche</h1>
+        <h1 className="top-title">Faites votre recherche</h1>
         <input
           onChange={(e) => setSearchData(e.target.value)}
           type="text"
@@ -41,6 +42,7 @@ export default function Find() {
               <span style={{ color: film.vote_average > 5 ? "green" : "red" }}>
                 Popularité : {film.vote_average}
               </span>
+              <Like film={film} />
             </div>
           );
         })}

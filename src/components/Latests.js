@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import "./moviecards.css";
 
 export default function Latests() {
   const [latestData, setLatestData] = useState([]);

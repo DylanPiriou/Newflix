@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Card from "../components/Card";
+import CardHeader from "../components/CardHeader";
 import Navbar from "../components/Navbar";
 import TopRated from "../components/TopRated";
 import "./home.css";
 import Latests from "../components/Latests";
 import Footer from "../components/Footer";
+import Cards from "../components/Cards";
 
 export default function Home() {
   const [trendData, setTrendData] = useState([]);
@@ -22,27 +23,9 @@ export default function Home() {
     <div>
       <Navbar />
       {trendData.slice(1, 2).map((movie, index) => (
-        <Card key={index} movie={movie} />
+        <CardHeader key={index} movie={movie} />
       ))}
-      <div className="row-container">
-        <h2 className="category-title">Tendances cette semaine</h2>
-        <div className="row">
-          <div className="movie-container">
-            {trendData.map((trend) => {
-              return (
-                <div className="movie-card">
-                  <img
-                    src={
-                      "https://image.tmdb.org/t/p/original/" + trend.poster_path
-                    }
-                    alt="img film"
-                  />
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+      <Cards movie={trendData} />
       <TopRated />
       <Latests />
       <Footer />

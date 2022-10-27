@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import "./find.css";
 
 export default function Find() {
   const [objData, setObjData] = useState([]);
@@ -9,7 +11,7 @@ export default function Find() {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=2e0a9e72249514e45f19f77ee9930761&language=fr-FR&query=${searchData}&page=1&include_adult=false`
+        `https://api.themoviedb.org/3/search/movie?api_key=2e0a9e72249514e45f19f77ee9930761&language=fr-FR&query=${searchData}`
       )
       .then((res) => setObjData(res.data.results));
   }, [searchData]);
@@ -18,11 +20,11 @@ export default function Find() {
     <div>
       <Navbar />
       <div className="top-box">
-        <h1 className="main-title">Faites votre recherche</h1>
+        <h1 className="find-title">Faites votre recherche</h1>
         <input
           onChange={(e) => setSearchData(e.target.value)}
           type="text"
-          placeholder="Entrer le nom du film"
+          placeholder="ex: Interstellar, Fury..."
         />
       </div>
       <div className="grid-container">
@@ -35,7 +37,7 @@ export default function Find() {
                 alt="img film"
               />
               <p>Date de sortie : {film.release_date}</p>
-              <small>Synopsis : {film.overview}</small>
+              {film.overview && <small>Résumé : {film.overview}</small>}
               <span style={{ color: film.vote_average > 5 ? "green" : "red" }}>
                 Popularité : {film.vote_average}
               </span>
@@ -43,6 +45,7 @@ export default function Find() {
           );
         })}
       </div>
+      <Footer />
     </div>
   );
 }

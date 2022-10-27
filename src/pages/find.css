@@ -1,0 +1,105 @@
+
+.top-box{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.find-title{
+    color: crimson;
+    padding: 50px;
+    margin-top: 5vh;
+    font-size: 3rem;
+}
+
+input[type="text"]{
+    margin: 0 auto;
+    width:400px;
+    height: 60px;
+    border-radius: 30px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 5vh;
+    border: none;
+    outline: none;
+    background: grey;
+    transition: background .2s ease;
+}
+
+input[type="text"]:focus{
+    background: whitesmoke;
+}
+
+input[type="text"]::placeholder{
+    color: black;
+}
+
+.grid-container{
+    background: rgb(15, 15, 15);
+    max-width: 1800px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    justify-content: center;
+    gap: 30px;
+    padding: 50px;
+    margin-bottom: 80px;
+}
+
+.card{
+    position: relative;
+    width: 400px;
+    height: auto;
+    background: rgb(9, 9, 9);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.card h1{
+    text-align: center;
+    color: whitesmoke;
+}
+
+
+.card img{
+    width: 300px;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.card small{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px 30px 0;
+    text-align: left;
+    line-height: 25px;
+    font-size: 1.2rem;
+    color: whitesmoke;
+    opacity: 0;
+    z-index: 5;
+    transition: all .3s ease;
+}
+
+.card:hover small{
+    opacity: 1;
+}

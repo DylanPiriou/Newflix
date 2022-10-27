@@ -1,0 +1,10 @@
+footer{
+    width: 100%;
+    background: rgb(8, 8, 8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 20px;
+}

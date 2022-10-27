@@ -3,7 +3,6 @@
     bottom: 12vh;
     padding-left: 8vh;
     margin-bottom: 20px;
-    color: crimson;
 }
 
 .row-container{
@@ -22,6 +21,20 @@
     align-items: center;
     margin: 0 auto;
     overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.row::-webkit-scrollbar{
+    height: 8px;
+}
+
+.row::-webkit-scrollbar-track{
+    background: rgb(9, 9, 9);
+}
+
+.row::-webkit-scrollbar-thumb{
+    background-color: rgb(37, 37, 37);
+    border-radius: 25px;
 }
 
 .movie-container{

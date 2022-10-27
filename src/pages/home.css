@@ -32,29 +32,3 @@
     color: crimson;
     opacity: 0.5;
 }
-
-.category-title{
-    width: 100%;
-    bottom: 12vh;
-    padding-left: 8vh;
-    margin-bottom: 20px;
-    color: crimson;
-}
-
-.row-container{
-    width: 100%;
-    height: 65vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.row{
-    width: 95%;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    overflow-x: auto;
-}

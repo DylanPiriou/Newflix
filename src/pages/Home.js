@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import TopRated from "../components/TopRated";
 import "./home.css";
 import Latests from "../components/Latests";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const [trendData, setTrendData] = useState([]);
@@ -44,6 +45,7 @@ export default function Home() {
       </div>
       <TopRated />
       <Latests />
+      <Footer />
     </div>
   );
 }

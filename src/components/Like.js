@@ -17,7 +17,7 @@ export default function Like({ film }) {
       window.localStorage.items = storedData;
       setPushedData(true);
     } else if (storedData.includes(event.toString())) {
-      let newData = storedData.filter((id) => id != event);
+      let newData = storedData.filter((id) => id !== event);
       window.localStorage.items = newData;
       setPushedData(false);
     }
@@ -26,7 +26,7 @@ export default function Like({ film }) {
   const item = useRef();
 
   useEffect(() => {
-    localStorage["items"].includes(item.current.id)
+    pushedData && localStorage["items"].includes(item.current.id)
       ? setPushedData(true)
       : setPushedData(false);
   }, [pushedData]);
@@ -39,7 +39,6 @@ export default function Like({ film }) {
       className="heart"
     >
       <i className={pushedData ? "fa-solid fa-heart" : "fa-regular fa-heart"} />
-      <p>{film.id}</p>
     </div>
   );
 }

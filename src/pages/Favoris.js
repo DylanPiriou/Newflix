@@ -22,8 +22,6 @@ export default function Favoris() {
     }
   }, []);
 
-  console.log(listData);
-
   return (
     <div>
       <Navbar />

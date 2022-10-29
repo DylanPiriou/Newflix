@@ -28,7 +28,7 @@ export default function Navbar() {
         <NavLink to="/">Accueil</NavLink>
         <NavLink to="/favoris">Favoris</NavLink>
         <NavLink to="/rechercher">
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass"></i>
         </NavLink>
       </nav>
     </div>

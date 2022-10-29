@@ -25,10 +25,10 @@
     transform: translateY(-50%);
     left: 8vw;
     font-size: 1.5rem;
+    color: whitesmoke;
 }
 
 .main-titles h1{
     font-size: 5rem;
     color: crimson;
-    opacity: 0.5;
 }

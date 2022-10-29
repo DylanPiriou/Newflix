@@ -4,9 +4,9 @@ import CardHeader from "../components/CardHeader";
 import Navbar from "../components/Navbar";
 import TopRated from "../components/TopRated";
 import "./home.css";
-import Latests from "../components/Latests";
+import TvShow from "../components/TvShow";
 import Footer from "../components/Footer";
-import Cards from "../components/Cards";
+import Trends from "../components/Trends";
 
 export default function Home() {
   const [trendData, setTrendData] = useState([]);
@@ -22,12 +22,12 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      {trendData.slice(1, 2).map((movie, index) => (
+      {trendData.slice(2, 3).map((movie, index) => (
         <CardHeader key={index} movie={movie} />
       ))}
-      <Cards movie={trendData} />
+      <Trends movie={trendData} />
       <TopRated />
-      <Latests />
+      <TvShow />
       <Footer />
     </div>
   );

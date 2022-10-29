@@ -1,7 +1,7 @@
 import React from "react";
 import "../components/moviecards.css";
 
-export default function Cards({ movie }) {
+export default function Trends({ movie }) {
   return (
     <div className="row-container">
       <h2 className="category-title">Tendances cette semaine</h2>
@@ -16,6 +16,9 @@ export default function Cards({ movie }) {
                   }
                   alt="img film"
                 />
+                <div className="watch">
+                  <p>Regarder</p>
+                </div>
               </div>
             );
           })}

@@ -21,7 +21,7 @@ export default function Find() {
     <div>
       <Navbar />
       <div className="top-box">
-        <h1 className="top-title">Faites votre recherche</h1>
+        <h1 className="top-title">Rechercher votre film</h1>
         <input
           onChange={(e) => setSearchData(e.target.value)}
           type="text"
@@ -34,7 +34,11 @@ export default function Find() {
             <div className="card">
               <h1>{film.original_title}</h1>
               <img
-                src={"https://image.tmdb.org/t/p/original/" + film.poster_path}
+                src={
+                  film.poster_path
+                    ? "https://image.tmdb.org/t/p/original/" + film.poster_path
+                    : "./imgs/No data-amico.png"
+                }
                 alt="img film"
               />
               <p>Date de sortie : {film.release_date}</p>

@@ -1,16 +1,45 @@
 import React, { useState } from "react";
+import { useRef } from "react";
+import { useEffect } from "react";
 import "../pages/findFav.css";
 
 export default function Like({ film }) {
-  const [liked, setLiked] = useState(true);
+  const [pushedData, setPushedData] = useState(false);
 
-  const handleLike = () => {
-    setLiked(!liked);
+  //Logique ajout/supp de l'id des films dans le localStorage
+  const handleLike = (event) => {
+    let storedData = window.localStorage.items
+      ? window.localStorage.items.split(",")
+      : [];
+
+    if (!storedData.includes(event.toString())) {
+      storedData.unshift(event);
+      window.localStorage.items = storedData;
+      setPushedData(true);
+    } else if (storedData.includes(event.toString())) {
+      let newData = storedData.filter((id) => id != event);
+      window.localStorage.items = newData;
+      setPushedData(false);
+    }
   };
 
+  const item = useRef();
+
+  useEffect(() => {
+    localStorage["items"].includes(item.current.id)
+      ? setPushedData(true)
+      : setPushedData(false);
+  }, [pushedData]);
+
   return (
-    <div onClick={() => handleLike()} className="heart">
-      <i class={liked ? "fa-regular fa-heart" : "fa-solid fa-heart"}></i>
+    <div
+      ref={item}
+      onClick={(e) => handleLike(e.currentTarget.id)}
+      id={film.id}
+      className="heart"
+    >
+      <i className={pushedData ? "fa-solid fa-heart" : "fa-regular fa-heart"} />
+      <p>{film.id}</p>
     </div>
   );
 }

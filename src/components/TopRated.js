@@ -28,6 +28,9 @@ export default function TopRated() {
                     }
                     alt="img film"
                   />
+                  <div className="watch">
+                    <p>Regarder</p>
+                  </div>
                 </div>
               );
             })}

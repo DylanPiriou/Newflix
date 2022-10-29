@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-export default function Latests() {
-  const [latestData, setLatestData] = useState([]);
+export default function TvShow() {
+  const [tvShowData, setTvShowData] = useState([]);
 
   useEffect(() => {
     axios
@@ -10,7 +10,7 @@ export default function Latests() {
         `
         https://api.themoviedb.org/3/tv/popular?api_key=2e0a9e72249514e45f19f77ee9930761&language=en-US&page=1`
       )
-      .then((res) => setLatestData(res.data.results));
+      .then((res) => setTvShowData(res.data.results));
   }, []);
 
   return (
@@ -19,16 +19,18 @@ export default function Latests() {
         <h2 className="category-title">Les séries Tv populaires</h2>
         <div className="row">
           <div className="movie-container">
-            {latestData.map((latest) => {
+            {tvShowData.map((show) => {
               return (
                 <div className="movie-card">
                   <img
                     src={
-                      "https://image.tmdb.org/t/p/original/" +
-                      latest.poster_path
+                      "https://image.tmdb.org/t/p/original/" + show.poster_path
                     }
                     alt="img film"
                   />
+                  <div className="watch">
+                    <p>Regarder</p>
+                  </div>
                 </div>
               );
             })}

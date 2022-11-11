@@ -29,7 +29,9 @@ export default function TvShow() {
                     alt="img film"
                   />
                   <div className="watch">
-                    <p>Regarder</p>
+                    <p>
+                      <i class="fa-regular fa-circle-play"></i>
+                    </p>
                   </div>
                 </div>
               );

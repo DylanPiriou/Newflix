@@ -13,28 +13,31 @@
     padding: 50px;
     margin-top: 5vh;
     font-size: 3rem;
+    text-align: center;
 }
 
 input[type="text"]{
     margin: 0 auto;
-    width:600px;
+    width:50%;
+    min-width: 400px;
     height: 60px;
-    border-radius: 30px;
     padding: 20px;
-    text-align: center;
+    text-align: left;
     margin-bottom: 5vh;
     border: none;
+    border-bottom: 2px solid whitesmoke;
     outline: none;
-    background: grey;
-    transition: background .2s ease;
+    background: none;
+    transition: all .2s ease;
+    color: whitesmoke;
 }
 
 input[type="text"]:focus{
-    background: whitesmoke;
+    border-bottom: 2px solid crimson;
 }
 
 input[type="text"]::placeholder{
-    color: black;
+    color: whitesmoke;
 }
 
 .grid-container{

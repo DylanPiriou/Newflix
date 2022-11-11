@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      {trendData.slice(2, 3).map((movie, index) => (
+      {trendData.slice(0, 1).map((movie, index) => (
         <CardHeader key={index} movie={movie} />
       ))}
       <Trends movie={trendData} />

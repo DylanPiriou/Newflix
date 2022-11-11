@@ -4,41 +4,91 @@ import { useEffect } from "react";
 import "../pages/findFav.css";
 
 export default function Like({ film }) {
-  const [pushedData, setPushedData] = useState(false);
+  const [storageItem, setStorageItem] = useState(
+    () => {
+      const ls = localStorage.getItem("favourites");
+      if (ls) return JSON.parse(ls);
+      else return [];
+    }
 
-  //Logique ajout/supp de l'id des films dans le localStorage
-  const handleLike = (event) => {
-    let storedData = window.localStorage.items
-      ? window.localStorage.items.split(",")
-      : [];
+    // JSON.parse(localStorage.getItem("favourites") || "[]")
+  );
 
-    if (!storedData.includes(event.toString())) {
-      storedData.unshift(event);
-      window.localStorage.items = storedData;
-      setPushedData(true);
-    } else if (storedData.includes(event.toString())) {
-      let newData = storedData.filter((id) => id !== event);
-      window.localStorage.items = newData;
-      setPushedData(false);
+  const isFavourited = storageItem.includes(film.id);
+
+  const handleToggleFavourite = () => {
+    if (!isFavourited) {
+      const newStorageItem = (prev) => [...prev, film.id];
+      window.location.reload();
+      window.alert("Ce film va être ajouté aux favoris");
+      setStorageItem(newStorageItem);
+      localStorage.setItem("favourites", JSON.stringify(newStorageItem));
+    } else {
+      const newStorageItem = storageItem.filter(
+        (savedId) => savedId !== film.id
+      );
+      window.location.reload();
+      setStorageItem(newStorageItem);
+      localStorage.setItem("favourites", JSON.stringify(newStorageItem));
     }
   };
 
-  const item = useRef();
-
   useEffect(() => {
-    pushedData && localStorage["items"].includes(item.current.id)
-      ? setPushedData(true)
-      : setPushedData(false);
-  }, [pushedData]);
+    localStorage.setItem("favourites", JSON.stringify(storageItem));
+  }, [storageItem]);
+  // const [pushedData, setPushedData] = useState(false);
+
+  // //Logique ajout/supp de l'id des films dans le localStorage
+
+  // const handleLike = (event) => {
+  //   let storedData = window.localStorage.items
+  //     ? window.localStorage.items.split(",")
+  //     : [];
+
+  //   if (!storedData.includes(event.toString())) {
+  //     storedData.unshift(event);
+  //     window.localStorage.items = storedData;
+  //     setPushedData(true);
+  //     localStorage.setItem("liked", true);
+  //   } else if (storedData.includes(event.toString())) {
+  //     let newData = storedData.filter((id) => id !== event);
+  //     window.localStorage.items = newData;
+  //     setPushedData(false);
+  //     localStorage.setItem("liked", false);
+  //   }
+  // };
+
+  // const item = useRef();
+  // const like = useRef();
+
+  // useEffect(() => {
+  //   window.localStorage.setItem("liked", true);
+  // }, [pushedData]);
+
+  // useEffect(() => {
+  //   window.localStorage.getItem("liked")
+  //     ? // [window.localStorage["items"]].includes(item.current.id)
+  //       setPushedData(true)
+  //     : setPushedData(false);
+  // }, []);
+
+  // useEffect(() => {
+  //   pushedData && !localStorage["items"] !== []
+  //     ? setPushedData(true)
+  //     : setPushedData(false);
+  // }, []);
 
   return (
     <div
-      ref={item}
-      onClick={(e) => handleLike(e.currentTarget.id)}
+      // ref={item}
+      onClick={() => handleToggleFavourite()}
       id={film.id}
       className="heart"
     >
-      <i className={pushedData ? "fa-solid fa-heart" : "fa-regular fa-heart"} />
+      <i
+        // ref={like}
+        className={isFavourited ? "fa-solid fa-heart" : "fa-regular fa-heart"}
+      />
     </div>
   );
 }

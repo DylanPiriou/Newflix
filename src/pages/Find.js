@@ -7,14 +7,14 @@ import Like from "../components/Like";
 
 export default function Find() {
   const [objData, setObjData] = useState([]);
-  const [searchData, setSearchData] = useState();
+  const [searchData, setSearchData] = useState("marvel");
 
   useEffect(() => {
     axios
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=2e0a9e72249514e45f19f77ee9930761&language=fr-FR&query=${searchData}`
       )
-      .then((res) => setObjData(res.data.results));
+      .then((res) => setObjData(Array.from(res.data.results)));
   }, [searchData]);
 
   return (
@@ -25,7 +25,7 @@ export default function Find() {
         <input
           onChange={(e) => setSearchData(e.target.value)}
           type="text"
-          placeholder="ex: Interstellar, Fury..."
+          placeholder="ex. Interstellar"
         />
       </div>
       <div className="grid-container">

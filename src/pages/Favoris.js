@@ -9,8 +9,8 @@ export default function Favoris() {
   const [listData, setListData] = useState([]);
 
   useEffect(() => {
-    let moviesId = window.localStorage.items
-      ? window.localStorage.items.split(",")
+    let moviesId = window.localStorage.favourites
+      ? JSON.parse(window.localStorage.favourites)
       : [];
 
     for (let i = 0; i < moviesId.length; i++) {

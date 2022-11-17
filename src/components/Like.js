@@ -19,15 +19,14 @@ export default function Like({ film }) {
   const handleToggleFavourite = () => {
     if (!isFavourited) {
       const newStorageItem = (prev) => [...prev, film.id];
-      window.location.reload();
-      window.alert("Ce film va être ajouté aux favoris");
+      window.location.reload(false);
       setStorageItem(newStorageItem);
       localStorage.setItem("favourites", JSON.stringify(newStorageItem));
     } else {
       const newStorageItem = storageItem.filter(
         (savedId) => savedId !== film.id
       );
-      window.location.reload();
+      window.location.reload(false);
       setStorageItem(newStorageItem);
       localStorage.setItem("favourites", JSON.stringify(newStorageItem));
     }

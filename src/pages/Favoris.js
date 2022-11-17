@@ -28,24 +28,31 @@ export default function Favoris() {
       <div className="top-box">
         <h1 className="top-title">Mes favoris</h1>
       </div>
-      <div className="grid-container">
-        {listData.map((film) => {
-          return (
-            <div className="card">
-              <h1>{film.original_title}</h1>
-              <img
-                src={
-                  film.poster_path
-                    ? "https://image.tmdb.org/t/p/original/" + film.poster_path
-                    : "./imgs/No data-amico.png"
-                }
-                alt="img film"
-              />
-              <p>Date de sortie : {film.release_date}</p>
-            </div>
-          );
-        })}
-      </div>
+      {listData.length >= 1 ? (
+        <div className="grid-container">
+          {listData.map((film) => {
+            return (
+              <div className="card">
+                <h1>{film.original_title}</h1>
+                <img
+                  src={
+                    film.poster_path
+                      ? "https://image.tmdb.org/t/p/original/" +
+                        film.poster_path
+                      : "./imgs/No data-amico.png"
+                  }
+                  alt="img film"
+                />
+                <p>Date de sortie : {film.release_date}</p>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="grid-container">
+          <h2>Pas de favoris pour le moment.</h2>
+        </div>
+      )}
       <Footer />
     </div>
   );

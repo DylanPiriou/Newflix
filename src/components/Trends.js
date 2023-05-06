@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/moviecards.css";
+import "./moviecards.css";
 
 export default function Trends({ movie }) {
   return (
@@ -7,9 +7,9 @@ export default function Trends({ movie }) {
       <h2 className="category-title">Tendances cette semaine</h2>
       <div className="row">
         <div className="movie-container">
-          {movie.map((trend) => {
+          {movie.map((trend, index) => {
             return (
-              <div className="movie-card">
+              <div className="movie-card" key={index}>
                 <img
                   src={
                     "https://image.tmdb.org/t/p/original/" + trend.poster_path
@@ -18,7 +18,7 @@ export default function Trends({ movie }) {
                 />
                 <div className="watch">
                   <p>
-                    <i class="fa-regular fa-circle-play"></i>
+                    <i className="fa-regular fa-circle-play"></i>
                   </p>
                 </div>
               </div>

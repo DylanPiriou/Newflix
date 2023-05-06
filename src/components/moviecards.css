@@ -19,7 +19,7 @@
     height: 50vh;
     display: flex;
     align-items: center;
-    margin: 0 auto;
+    justify-content: flex-start;
     overflow-x: auto;
     overflow-y: hidden;
 }

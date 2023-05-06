@@ -21,7 +21,7 @@ export default function Navbar() {
     <div className={shownav ? "shown" : "navbar"}>
       <p className="home-title">
         <NavLink to="/">
-          Movie<span>HUB.</span>
+          New<span>Flix.</span>
         </NavLink>
       </p>
       <nav>

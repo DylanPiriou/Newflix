@@ -19,9 +19,9 @@ export default function TvShow() {
         <h2 className="category-title">Les séries Tv populaires</h2>
         <div className="row">
           <div className="movie-container">
-            {tvShowData.map((show) => {
+            {tvShowData.map((show, index) => {
               return (
-                <div className="movie-card">
+                <div className="movie-card" key={index}>
                   <img
                     src={
                       "https://image.tmdb.org/t/p/original/" + show.poster_path
@@ -30,7 +30,7 @@ export default function TvShow() {
                   />
                   <div className="watch">
                     <p>
-                      <i class="fa-regular fa-circle-play"></i>
+                      <i className="fa-regular fa-circle-play"></i>
                     </p>
                   </div>
                 </div>

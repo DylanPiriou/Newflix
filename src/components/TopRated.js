@@ -19,9 +19,9 @@ export default function TopRated() {
         <h2 className="category-title">Les mieux notés</h2>
         <div className="row">
           <div className="movie-container">
-            {topRatedData.map((rated) => {
+            {topRatedData.map((rated, index) => {
               return (
-                <div className="movie-card">
+                <div className="movie-card" key={index}>
                   <img
                     src={
                       "https://image.tmdb.org/t/p/original/" + rated.poster_path
@@ -30,7 +30,7 @@ export default function TopRated() {
                   />
                   <div className="watch">
                     <p>
-                      <i class="fa-regular fa-circle-play"></i>
+                      <i className="fa-regular fa-circle-play"></i>
                     </p>
                   </div>
                 </div>

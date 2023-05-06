@@ -30,9 +30,9 @@ export default function Favoris() {
       </div>
       {listData.length >= 1 ? (
         <div className="grid-container">
-          {listData.map((film) => {
+          {listData.map((film, index) => {
             return (
-              <div className="card">
+              <div className="card" key={index}>
                 <h1>{film.original_title}</h1>
                 <img
                   src={

@@ -39,6 +39,10 @@
 }
 
 .main-titles h1{
-    font-size: clamp(3.5rem, 5vw, 5rem);
+    font-size: clamp(2.5rem, 5vw, 5rem);
     color: crimson;
+}
+
+.main-titles p{
+    font-size: clamp(1rem, 2vw, 2rem);
 }

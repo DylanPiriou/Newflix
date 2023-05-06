@@ -14,7 +14,7 @@ export default function Find() {
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=2e0a9e72249514e45f19f77ee9930761&language=fr-FR&query=${searchData}`
       )
-      .then((res) => setObjData(Array.from(res.data.results)));
+      .then((res) => setObjData((res.data.results)));
   }, [searchData]);
 
   return (
@@ -29,9 +29,9 @@ export default function Find() {
         />
       </div>
       <div className="grid-container">
-        {objData.map((film) => {
+        {objData.map((film, index) => {
           return (
-            <div className="card">
+            <div className="card" key={index}>
               <h1>{film.original_title}</h1>
               <img
                 src={

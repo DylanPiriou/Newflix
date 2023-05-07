@@ -32,7 +32,7 @@ export default function Favoris() {
       <Navbar />
       <div className="top-box">
         <h1 className="top-title">Mes favoris</h1>
-        <p className="delete-fav" onClick={() => handleDelete()}>Supprimer tous les favoris</p>
+        <p className="delete-fav" onClick={() => handleDelete()}><i class="fa-solid fa-trash"></i>Supprimer tous les favoris</p>
       </div>
       {listData.length >= 1 ? (
         <div className="grid-container">

@@ -5,20 +5,31 @@ import useLocalStorage from "./useLocalStorage";
 
 export default function Like({ film }) {
 
+  const [favouritedIds, setFavouritedIds] = useState([]);
   const [storageItem, setStorageItem] = useLocalStorage("favourites", []);
 
-  const isFavourited = storageItem.includes(film.id);
+  useEffect(() => {
+    setFavouritedIds(storageItem);
+  }, [storageItem]);
+
+  const isFavourited = favouritedIds.includes(film.id);
 
   const handleToggleFavourite = () => {
-    const newStorageItem = isFavourited
-      ? storageItem.filter((savedId) => savedId !== film.id)
-      : [...storageItem, film.id];
+    const newFavouritedIds = isFavourited
+      ? favouritedIds.filter((savedId) => savedId !== film.id)
+      : [...favouritedIds, film.id];
 
-      setStorageItem(newStorageItem);
-    };
+    const existingStorageItem = localStorage.getItem("favourites");
+    const existingFavouritedIds = existingStorageItem
+      ? JSON.parse(existingStorageItem)
+      : [];
 
+    const updatedFavouritedIds = [...existingFavouritedIds, ...newFavouritedIds];
+    localStorage.setItem("favourites", JSON.stringify(updatedFavouritedIds));
+    setFavouritedIds(newFavouritedIds);
+  };
+  
     
-
   return (
     <div
       // ref={item}

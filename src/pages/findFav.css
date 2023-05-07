@@ -1,3 +1,4 @@
+
 .top-box{
     width: 100%;
     height: auto;
@@ -16,7 +17,12 @@
     text-align: center;
 }
 
-input[type="text"]{
+.delete-fav{
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+input[type="search"]{
     margin: 0 auto;
     width:50%;
     min-width: 300px;
@@ -32,11 +38,11 @@ input[type="text"]{
     color: whitesmoke;
 }
 
-input[type="text"]:focus{
+input[type="search"]:focus{
     border-bottom: 2px solid crimson;
 }
 
-input[type="text"]::placeholder{
+input[type="search"]::placeholder{
     color: whitesmoke;
 }
 
@@ -56,13 +62,13 @@ input[type="text"]::placeholder{
     margin-bottom: 80px;
 }
 
-.grid-container h2{
+/* .grid-container h2{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-}
+} */
 
 .card{
     position: relative;
@@ -120,7 +126,7 @@ input[type="text"]::placeholder{
     height: 80px;
     bottom: 80px;
     right: 0px;
-    z-index: 10;
+    z-index: 5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -129,4 +135,11 @@ input[type="text"]::placeholder{
 .heart i{
     color: red;
     font-size: 1.5rem;
+}
+
+.grid-container p {
+    grid-column: 1/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

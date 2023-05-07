@@ -7,7 +7,7 @@ export default function Footer() {
       <h3>
         Movie<span>HUB.</span>
       </h3>
-      <small>Made with love by D.Piriou</small>
+      <small>Made with passion by D.Piriou</small>
     </footer>
   );
 }

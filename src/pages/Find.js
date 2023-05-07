@@ -7,7 +7,7 @@ import Like from "../components/Like";
 
 export default function Find() {
   const [objData, setObjData] = useState([]);
-  const [searchData, setSearchData] = useState("marvel");
+  const [searchData, setSearchData] = useState("interstellar");
 
   useEffect(() => {
     axios
@@ -23,13 +23,15 @@ export default function Find() {
       <div className="top-box">
         <h1 className="top-title">Rechercher votre film</h1>
         <input
-          onChange={(e) => setSearchData(e.target.value)}
-          type="text"
+          onKeyDown={(e) => {e.key === "Enter" && setSearchData(e.target.value)}}
+          type="search"
           placeholder="ex. Interstellar"
         />
       </div>
       <div className="grid-container">
-        {objData.map((film, index) => {
+        {objData.length > 0 ?
+        (
+        objData.slice(0, 5).map((film, index) => {
           return (
             <div className="card" key={index}>
               <h1>{film.original_title}</h1>
@@ -49,7 +51,12 @@ export default function Find() {
               <Like film={film} />
             </div>
           );
-        })}
+        })
+        ) : (
+          <p>Nous n'avons pas trouvés de films qui correspondent à votre recherche. Veuillez réessayer.</p>
+        )
+        
+        }
       </div>
       <Footer />
     </div>

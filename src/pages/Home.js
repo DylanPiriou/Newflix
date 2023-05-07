@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      {trendData?.slice(randomData -1, randomData).map((movie, index) => (
+      {trendData.slice(randomData -1, randomData).map((movie, index) => (
         <CardHeader key={index} movie={movie} />
       ))}
       <Trends movie={trendData} />

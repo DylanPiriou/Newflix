@@ -10,7 +10,6 @@ export default function Card({ movie }) {
       <div className="black-filter"></div>
       <div className="main-titles">
         <h1>{movie.title}</h1>
-        <p>Disponible maintenant en 4K!</p>
       </div>
     </div>
   );

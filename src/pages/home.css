@@ -3,7 +3,6 @@
     width: 100%;
     height: 80vh;
     overflow: hidden;
-    margin-bottom: 3vh;
 }
 
 .main-header img{
@@ -34,6 +33,7 @@
     top: 50%;
     transform: translateY(-50%);
     left: 8vw;
+    max-width: 50%;
     font-size: 1.5rem;
     color: whitesmoke;
 }

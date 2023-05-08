@@ -3,7 +3,7 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./findFav.css";
-import Like from "../components/Like";
+import FavCard from "../components/FavCard";
 
 export default function Find() {
   const [objData, setObjData] = useState([]);
@@ -36,23 +36,7 @@ export default function Find() {
         (
         objData.slice(0, 5).map((film, index) => {
           return (
-            <div className="card" key={index}>
-              <h1>{film.original_title}</h1>
-              <img
-                src={
-                  film.poster_path
-                    ? "https://image.tmdb.org/t/p/original/" + film.poster_path
-                    : "./imgs/No data-amico.png"
-                }
-                alt={film.original_title}
-              />
-              <p>Date de sortie : {film.release_date.split('-').reverse().join('/')}</p>
-              {film.overview && <small>Résumé : {film.overview}</small>}
-              <span style={{ color: film.vote_average > 5 ? "green" : "red" }}>
-                Popularité : {film.vote_average.toFixed(1)}/10
-              </span>
-              <Like film={film} message={message} />
-            </div>
+            <FavCard key={index} film={film} message={message}/>
           );
         })
         ) : (

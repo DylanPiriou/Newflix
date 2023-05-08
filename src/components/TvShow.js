@@ -11,7 +11,7 @@ export default function TvShow() {
         `
         https://api.themoviedb.org/3/tv/popular?api_key=2e0a9e72249514e45f19f77ee9930761&language=en-US&page=1`
       )
-      .then((res) => console.log(res.data.results));
+      .then((res) => setTvShowData(res.data.results));
   }, []);
 
   return (

@@ -20,7 +20,8 @@ export default function Like({ film, message }) {
   const isFavourited = favouritedIds.includes(film.id);
 
   // Fonction pour ajouter/supprimer des films du localStorage au clique
-  const handleToggleFavourite = () => {
+  const handleToggleFavourite = (e) => {
+    e.stopPropagation();
     let newFavouritedIds;
     
     if (isFavourited) {
@@ -72,7 +73,7 @@ export default function Like({ film, message }) {
   return (
     <div
       // ref={item}
-      onClick={() => handleToggleFavourite()}
+      onClick={(e) => handleToggleFavourite(e)}
       id={film.id}
       className="heart"
     >

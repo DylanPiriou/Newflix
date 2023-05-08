@@ -55,6 +55,8 @@
     height: 450px;
     overflow: hidden;
     user-select: none;
+    color: whitesmoke;
+    text-decoration: none;
 }
 
 .movie-card img{

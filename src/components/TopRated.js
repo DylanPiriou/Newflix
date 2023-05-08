@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./moviecards.css";
+import MovieCard from "./MovieCard";
 
 export default function TopRated() {
   const [topRatedData, setTopRatedData] = useState([]);
@@ -19,22 +20,8 @@ export default function TopRated() {
         <h2 className="category-title">Les mieux notés</h2>
         <div className="row">
           <div className="movie-container">
-            {topRatedData.map((rated, index) => {
-              return (
-                <div className="movie-card" key={index}>
-                  <img
-                    src={
-                      "https://image.tmdb.org/t/p/original/" + rated.poster_path
-                    }
-                    alt="img film"
-                  />
-                  <div className="watch">
-                    <p>
-                      <i className="fa-regular fa-circle-play"></i>
-                    </p>
-                  </div>
-                </div>
-              );
+            {topRatedData.map((film, index) => {
+              return <MovieCard key={index} film={film} />
             })}
           </div>
         </div>

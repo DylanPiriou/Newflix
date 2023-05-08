@@ -9,7 +9,6 @@ export default function Like({ film, message }) {
   const [favouritedIds, setFavouritedIds] = useState([]);
   // Tableau du localStorage
   const [storageItem, setStorageItem] = useLocalStorage("favourites", []);
-  const [alertMessage, setAlertMessage] = useState();
 
   // Mise à jour de la liste des fav à chaque changement dans le localStorage
   useEffect(() => {
@@ -65,9 +64,9 @@ export default function Like({ film, message }) {
       message.current.style.background = color;
       message.current.style.padding = "10px";
       setTimeout(() => {
-        message.current.innerHTML = "";
+        message.current.innerHTML = null;
         message.current.style.padding = "0";
-      }, 2000);
+      }, 1000);
   }
     
   return (

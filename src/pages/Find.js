@@ -17,7 +17,7 @@ export default function Find() {
       .then((res) => setObjData((res.data.results)));
   }, [searchData]);
 
-  const message = useRef();
+  const message = useRef(null);
 
   return (
     <div>

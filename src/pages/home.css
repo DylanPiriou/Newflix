@@ -40,7 +40,8 @@
 
 .main-titles h1{
     font-size: clamp(2.5rem, 5vw, 5rem);
-    color: crimson;
+    letter-spacing: 3px;
+    color: whitesmoke;
 }
 
 .main-titles p{

@@ -1,3 +1,24 @@
+.message{
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: whitesmoke;
+    z-index: 10;
+}
+
+.message i {
+    width: 30px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    outline: 2px solid whitesmoke;
+}
 
 .top-box{
     width: 100%;

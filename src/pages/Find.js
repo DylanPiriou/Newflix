@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -17,9 +17,12 @@ export default function Find() {
       .then((res) => setObjData((res.data.results)));
   }, [searchData]);
 
+  const message = useRef();
+
   return (
     <div>
       <Navbar />
+      <div className="message" ref={message}></div>
       <div className="top-box">
         <h1 className="top-title">Rechercher votre film</h1>
         <input
@@ -41,14 +44,14 @@ export default function Find() {
                     ? "https://image.tmdb.org/t/p/original/" + film.poster_path
                     : "./imgs/No data-amico.png"
                 }
-                alt="img film"
+                alt={film.original_title}
               />
-              <p>Date de sortie : {film.release_date}</p>
+              <p>Date de sortie : {film.release_date.split('-').reverse().join('/')}</p>
               {film.overview && <small>Résumé : {film.overview}</small>}
               <span style={{ color: film.vote_average > 5 ? "green" : "red" }}>
-                Popularité : {film.vote_average}
+                Popularité : {film.vote_average.toFixed(1)}/10
               </span>
-              <Like film={film} />
+              <Like film={film} message={message} />
             </div>
           );
         })

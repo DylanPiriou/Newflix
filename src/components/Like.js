@@ -3,12 +3,13 @@ import { useEffect } from "react";
 import "../pages/findFav.css";
 import useLocalStorage from "./useLocalStorage";
 
-export default function Like({ film }) {
+export default function Like({ film, message }) {
 
   // Tableau des ids des films fav
   const [favouritedIds, setFavouritedIds] = useState([]);
   // Tableau du localStorage
   const [storageItem, setStorageItem] = useLocalStorage("favourites", []);
+  const [alertMessage, setAlertMessage] = useState();
 
   // Mise à jour de la liste des fav à chaque changement dans le localStorage
   useEffect(() => {
@@ -50,7 +51,24 @@ export default function Like({ film }) {
     localStorage.setItem("favourites", JSON.stringify(updatedFavouritedIds));
     // Mise à jour de l'état local
     setFavouritedIds(newFavouritedIds);
+
+    // Afficher l'alerte après la mise à jour de l'état
+    if (isFavourited) {
+      displayMsg(`<i class="fa-solid fa-xmark"></i> ${film.title} a été supprimé de vos favoris.`, "red");
+    } else {
+      displayMsg(`<i class="fa-solid fa-check"></i> ${film.title} a été ajouté à vos favoris.`, "green");
+    }
   };
+
+  const displayMsg = (txt, color) => {
+      message.current.innerHTML = txt;
+      message.current.style.background = color;
+      message.current.style.padding = "10px";
+      setTimeout(() => {
+        message.current.innerHTML = "";
+        message.current.style.padding = "0";
+      }, 2000);
+  }
     
   return (
     <div

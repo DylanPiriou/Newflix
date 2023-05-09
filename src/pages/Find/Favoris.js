@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
-import "./Favoris.scss";
-import { Link } from "react-router-dom";
+import FavCard from "../../components/FavCard/FavCard";
 
 export default function Favoris() {
   const [listData, setListData] = useState([]);
@@ -38,23 +37,7 @@ export default function Favoris() {
       {listData.length >= 1 ? (
         <div className="grid-container">
           {listData.map((film, index) => {
-            return (
-              <div className="card">
-                <Link to={`/${film.id}`} state={{ film }} key={index}>
-                  <h1>{film.original_title}</h1>
-                  <img
-                    src={
-                      film.poster_path
-                        ? "https://image.tmdb.org/t/p/original/" +
-                        film.poster_path
-                        : "./imgs/No data-amico.png"
-                    }
-                    alt="img film"
-                  />
-                  <p>Date de sortie : {film.release_date}</p>
-                </Link>
-              </div>
-            );
+            return <FavCard key={index} film={film} />;
           })}
         </div>
       ) : (

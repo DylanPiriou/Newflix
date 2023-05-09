@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import "./findFav.css";
-import FavCard from "../components/FavCard";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import "./Find.scss";
+import FavCard from "../../components/FavCard/FavCard";
 
 export default function Find() {
   const [objData, setObjData] = useState([]);
@@ -96,7 +96,7 @@ export default function Find() {
                 <h3>Les plus recherchés en ce moment</h3>
                 <ul>
                   {trendData.slice(0, 10).map((film, index) => {
-                    return <li key={index} onClick={(e) => {setSearchData(e.target.textContent); setGenreId(null)}}>{film.title}</li>
+                    return <li key={index} onClick={(e) => { setSearchData(e.target.textContent); setGenreId(null) }}>{film.title}</li>
                   })}
                 </ul>
               </div>

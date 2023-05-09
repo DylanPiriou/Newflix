@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import MovieCard from "./MovieCard";
+import MovieCard from "../MovieCard/MovieCard";
+import "./Slider.scss";
 
 export default function TvShow() {
   const [tvShowData, setTvShowData] = useState([]);

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Like from "../components/Like";
+import Like from "../Like/Like";
+import "./FavCard.scss";
 
 export default function FavCard({ film, message }) {
     return (
-        <div className="card">
+        <div className="fav-card">
             <Link to={`/${film.id}`} state={{ film }}>
                 <h1>{film.original_title}</h1>
                 <img

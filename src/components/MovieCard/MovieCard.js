@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
+import "./MovieCard.scss";
 
 export default function MovieCard({ film }) {
-    // useEffect(() => {
-    //     console.log(film)
-    // }, [])
+
     return (
         <Link to={`/${film.id}`} state={{ film }} className="movie-card">
             <img

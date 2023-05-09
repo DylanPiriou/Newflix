@@ -4,8 +4,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
 
-.not-found img{
-    width: 500px;
+    & img{
+        width: 500px;
+    }
 }

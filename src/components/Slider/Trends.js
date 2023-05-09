@@ -1,6 +1,6 @@
 import React from "react";
-import "./moviecards.css";
-import MovieCard from "./MovieCard";
+import "./Slider.scss";
+import MovieCard from "../MovieCard/MovieCard";
 
 export default function Trends({ movie }) {
   return (

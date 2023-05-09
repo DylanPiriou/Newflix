@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import "./findFav.css";
+import Footer from "../../components/Footer/Footer";
+import Navbar from "../../components/Navbar/Navbar";
+import "./Favoris.scss";
 import { Link } from "react-router-dom";
 
 export default function Favoris() {
@@ -46,7 +46,7 @@ export default function Favoris() {
                     src={
                       film.poster_path
                         ? "https://image.tmdb.org/t/p/original/" +
-                          film.poster_path
+                        film.poster_path
                         : "./imgs/No data-amico.png"
                     }
                     alt="img film"
@@ -59,7 +59,7 @@ export default function Favoris() {
         </div>
       ) : (
         <div className="grid-container">
-          <h2>Pas de favoris pour le moment.</h2>
+          <p>Pas de favoris pour le moment.</p>
         </div>
       )}
       <Footer />

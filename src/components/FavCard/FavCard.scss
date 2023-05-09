@@ -1,0 +1,28 @@
+.fav-card{
+    position: relative;
+    width: 400px;
+    height: auto;
+    background: rgb(9, 9, 9);
+    overflow: hidden;
+    
+    & a{
+        color: whitesmoke;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 10px;
+        overflow: hidden;
+    }
+    
+    & h1{
+        text-align: center;
+    }
+    
+    
+    & img{
+        width: 300px;
+        padding: 10px;
+    }
+}

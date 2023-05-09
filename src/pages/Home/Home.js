@@ -1,12 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import CardHeader from "../components/CardHeader";
-import Navbar from "../components/Navbar";
-import TopRated from "../components/TopRated";
-import "./home.css";
-import TvShow from "../components/TvShow";
-import Footer from "../components/Footer";
-import Trends from "../components/Trends";
+import CardHeader from "../../components/Header/Header";
+import Navbar from "../../components/Navbar/Navbar";
+import TopRated from "../../components/Slider/TopRated";
+import TvShow from "../../components/Slider/TvShow";
+import Footer from "../../components/Footer/Footer";
+import Trends from "../../components/Slider/Trends";
 
 export default function Home() {
   const [trendData, setTrendData] = useState([]);
@@ -26,7 +25,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      {trendData.slice(randomData -1, randomData).map((movie, index) => (
+      {trendData.slice(randomData - 1, randomData).map((movie, index) => (
         <CardHeader key={index} movie={movie} />
       ))}
       <Trends movie={trendData} />

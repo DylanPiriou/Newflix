@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom'
 import YouTube from "react-youtube";
-import "./Film.css";
+import "./FilmDetails.scss";
 import axios from "axios";
-import CardHeader from "../components/CardHeader";
-import Navbar from '../components/Navbar';
+import CardHeader from "../../components/Header/Header";
+import Navbar from '../../components/Navbar/Navbar';
 
 export default function Film() {
   const location = useLocation();
@@ -53,7 +53,7 @@ export default function Film() {
 
   return (
     <div className="film">
-      <Navbar/>
+      <Navbar />
       <CardHeader movie={film} />
       <div className="overview-wrapper">
         <YouTube className="youtube" videoId={id} opts={opts} onReady={onReady} />

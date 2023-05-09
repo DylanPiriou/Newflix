@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import "../pages/findFav.css";
-import useLocalStorage from "./useLocalStorage";
+import "./Like.scss";
+import useLocalStorage from "../useLocalStorage";
 
 export default function Like({ film, message }) {
 
@@ -23,7 +23,7 @@ export default function Like({ film, message }) {
   const handleToggleFavourite = (e) => {
     e.stopPropagation();
     let newFavouritedIds;
-    
+
     if (isFavourited) {
       // Supprime l'id (filter)
       newFavouritedIds = favouritedIds.filter((savedId) => savedId !== film.id);
@@ -31,13 +31,13 @@ export default function Like({ film, message }) {
       // Ajoute l'id (spread operator)
       newFavouritedIds = [...favouritedIds, film.id];
     }
-  
+
     // Récupération du localStorage
     const existingStorageItem = localStorage.getItem("favourites");
     const existingFavouritedIds = existingStorageItem
       ? JSON.parse(existingStorageItem)
       : [];
-  
+
     let updatedFavouritedIds;
     if (isFavourited) {
       updatedFavouritedIds = existingFavouritedIds.filter(
@@ -46,7 +46,7 @@ export default function Like({ film, message }) {
     } else {
       updatedFavouritedIds = [...existingFavouritedIds, film.id];
     }
-  
+
     // Stockage de la liste de favoris dans le localStorage
     localStorage.setItem("favourites", JSON.stringify(updatedFavouritedIds));
     // Mise à jour de l'état local
@@ -61,15 +61,15 @@ export default function Like({ film, message }) {
   };
 
   const displayMsg = (txt, color) => {
-      message.current.innerHTML = txt;
-      message.current.style.background = color;
-      message.current.style.padding = "10px";
-      setTimeout(() => {
-        message.current.innerHTML = null;
-        message.current.style.padding = "0";
-      }, 1000);
+    message.current.innerHTML = txt;
+    message.current.style.background = color;
+    message.current.style.padding = "10px";
+    setTimeout(() => {
+      message.current.innerHTML = null;
+      message.current.style.padding = "0";
+    }, 1000);
   }
-    
+
   return (
     <div
       // ref={item}

@@ -1,0 +1,16 @@
+.heart{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    bottom: 80px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+
+    & i{
+        color: red;
+        font-size: 1.5rem;
+    }
+}

@@ -43,20 +43,93 @@
     cursor: pointer;
 }
 
-input[type="search"]{
-    margin: 0 auto;
+.input-wrapper{
     width:50%;
     min-width: 300px;
+    background: rgb(24, 24, 24);
+    position: relative;
+}
+
+input[type="search"]{
+    margin: 0 auto;
+    width: 100%;
     height: 60px;
     padding: 20px;
     text-align: left;
-    margin-bottom: 5vh;
     border: none;
     border-bottom: 2px solid whitesmoke;
     outline: none;
     background: none;
     transition: all .2s ease;
     color: whitesmoke;
+}
+
+.data-box{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    color: whitesmoke;
+    padding: 20px 10px;
+    background: rgb(24, 24, 24);
+    z-index: 100;
+}
+
+.trend-wrapper,
+.genres-wrapper{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.data-box h3{
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.data-box ul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+}
+
+.genres-wrapper ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    place-content: flex-start;
+    gap: 10px;
+}
+
+.data-box ul li{
+    width: 100%;
+    font-size: 14px;
+    color: rgb(216, 216, 216);
+    list-style-type: none;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.data-box ul li:hover{
+    background: rgb(51, 51, 51);
+}
+
+.genres-wrapper ul button{
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: none;
+    outline: 1px solid whitesmoke;
+    color: whitesmoke;
+}
+
+.genres-wrapper ul button:hover{
+    background: rgb(51, 51, 51);
 }
 
 input[type="search"]:focus{

@@ -9,7 +9,6 @@ import Navbar from '../../components/Navbar/Navbar';
 export default function Film() {
   const location = useLocation();
   const { film } = location.state;
-  console.log(film)
 
   const opts = {
     height: '490',
@@ -24,7 +23,7 @@ export default function Film() {
     event.target.pauseVideo();
   };
 
-  const filmName = `trailer français ${film.title}`;
+  const filmName = `trailer français ${film.title ? film.title : film.name}`;
   console.log(filmName)
 
   const [id, setId] = useState("");
@@ -59,7 +58,7 @@ export default function Film() {
         <YouTube className="youtube" videoId={id} opts={opts} onReady={onReady} />
         <div className="data-container">
           <h3>Date de sortie</h3>
-          <span>{film.release_date.split("-").reverse().join("/")}</span>
+          <span>{film.release_date ? film.release_date.split("-").reverse().join("/") : film.first_air_date.split("-").reverse().join("/")}</span>
           <h3>Note globale</h3>
           <span>{film.vote_average.toFixed(1)}</span>
           <h3>Résumé</h3>

@@ -10,7 +10,7 @@ export default function Card({ movie }) {
       />
       <div className="black-filter"></div>
       <div className="main-titles">
-        <h1>{movie.title}</h1>
+        <h1>{movie.title ? movie.title : movie.name}</h1>
       </div>
     </div>
   );

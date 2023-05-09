@@ -28,27 +28,27 @@ export default function Film() {
 
   const [id, setId] = useState("");
 
-  useEffect(() => {
-    const getData = async () => {
-      const options = {
-        method: 'GET',
-        url: 'https://youtube-search-results.p.rapidapi.com/youtube-search/',
-        params: { q: filmName },
-        headers: {
-          'X-RapidAPI-Key': '8380072445mshe04ccea12158b5dp153a56jsn59ea5fb2826d',
-          'X-RapidAPI-Host': 'youtube-search-results.p.rapidapi.com'
-        }
-      };
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const options = {
+  //       method: 'GET',
+  //       url: 'https://youtube-search-results.p.rapidapi.com/youtube-search/',
+  //       params: { q: filmName },
+  //       headers: {
+  //         'X-RapidAPI-Key': '8380072445mshe04ccea12158b5dp153a56jsn59ea5fb2826d',
+  //         'X-RapidAPI-Host': 'youtube-search-results.p.rapidapi.com'
+  //       }
+  //     };
 
-      try {
-        const response = await axios.request(options);
-        setId(response.data.items[0].id);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    getData();
-  }, [])
+  //     try {
+  //       const response = await axios.request(options);
+  //       setId(response.data.items[0].id);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }
+  //   getData();
+  // }, [])
 
   return (
     <div className="film">

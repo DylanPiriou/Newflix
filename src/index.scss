@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Unbounded&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
 
 *{
     padding: 0;
@@ -7,9 +7,12 @@
 }
 
 body{
+    width: 100%;
+    max-width: 1850px;
+    margin: 0 auto;
     background: black;
     color: grey;
-    font-family: 'Unbounded', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
 
     &::-webkit-scrollbar{
         width: 10px;

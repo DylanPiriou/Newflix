@@ -34,21 +34,6 @@ export default function Find() {
     }
   }, [genreId, searchData]);
 
-  // Gestion de la fermeture de la modale
-  useEffect(() => {
-    const handleBlur = (e) => {
-      if (searchBox.current && !searchBox.current.contains(e.target) && !e.target.matches('input[type="search"]')) {
-        setIsFocused(false);
-      }
-    }
-
-    document.addEventListener("click", handleBlur);
-
-    return () => {
-      document.removeEventListener("click", handleBlur);
-    }
-  }, [])
-
   // Récpérer toutes les trends dans la modale
   const [trendData, setTrendData] = useState([]);
   useEffect(() => {
@@ -76,6 +61,21 @@ export default function Find() {
       .then((res) => setGenresData(res.data.genres));
   }, [])
 
+  // Gestion de la fermeture de la modale
+  useEffect(() => {
+    const handleBlur = (e) => {
+      if (searchBox.current && !searchBox.current.contains(e.target) && !e.target.matches('input[type="search"]')) {
+        setIsFocused(false);
+      }
+    }
+
+    document.addEventListener("click", handleBlur);
+
+    return () => {
+      document.removeEventListener("click", handleBlur);
+    }
+  }, [])
+
   return (
     <div>
       <Navbar />
@@ -84,8 +84,9 @@ export default function Find() {
         <h1 className="top-title">Rechercher votre film</h1>
 
         <div className="input-wrapper">
+          <i className="fa-solid fa-magnifying-glass"></i>
           <input
-            onKeyDown={(e) => { e.key === "Enter" && setSearchData(e.target.value); setGenreId(null) }}
+            onKeyDown={(e) => { e.key === "Enter" && setSearchData(e.target.value); setGenreId(null); setIsFocused(false) }}
             onFocus={(e) => handleFocus(e)}
             type="search"
             placeholder={searchData}
@@ -93,10 +94,10 @@ export default function Find() {
           {isFocused &&
             <div className="data-box" ref={searchBox}>
               <div className="trend-wrapper">
-                <h3>Les plus recherchés en ce moment</h3>
+                <h3>Tendances en ce moment</h3>
                 <ul>
                   {trendData.slice(0, 10).map((film, index) => {
-                    return <li key={index} onClick={(e) => { setSearchData(e.target.textContent); setGenreId(null) }}>{film.title}</li>
+                    return <li key={index} onClick={(e) => { setSearchData(e.target.textContent); setGenreId(null); setIsFocused(false) }}>{film.title}</li>
                   })}
                 </ul>
               </div>
@@ -104,7 +105,7 @@ export default function Find() {
                 <h3>Chercher par genres</h3>
                 <ul>
                   {genresData.map((film, index) => {
-                    return <button key={index} id={film.id} onClick={(e) => setGenreId(e.target.id)}>{film.name}</button>
+                    return <button key={index} id={film.id} onClick={(e) => { setGenreId(e.target.id); setIsFocused(false) }}>{film.name}</button>
                   })}
                 </ul>
               </div>

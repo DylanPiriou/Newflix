@@ -1,13 +1,14 @@
 .heart{
     position: absolute;
-    width: 80px;
-    height: 80px;
-    bottom: 80px;
-    right: 0px;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
+    text-shadow: 0 0 5px black;
+    z-index: 2;
 
     & i{
         color: red;

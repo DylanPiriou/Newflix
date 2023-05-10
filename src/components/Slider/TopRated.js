@@ -16,7 +16,7 @@ export default function TopRated() {
 
   return (
     <div>
-      <div className="row-container">
+      <div className="category-container">
         <h2 className="category-title">Les mieux notés</h2>
         <div className="row">
           <div className="movie-container">

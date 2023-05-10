@@ -8,11 +8,16 @@
     height: 10vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0 900px;
-    flex-wrap: wrap;
+    justify-content: space-between;
     padding: 0 8vw;
     z-index: 999;
+
+    @media (max-width: 455px){
+        &{
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+    }
 
     .home-title {
         font-size: clamp(2rem, 3vw, 3rem);

@@ -17,7 +17,7 @@ export default function TvShow() {
 
   return (
     <div>
-      <div className="row-container">
+      <div className="category-container">
         <h2 className="category-title">Les séries Tv populaires</h2>
         <div className="row">
           <div className="movie-container">

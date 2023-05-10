@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import "./Home.scss";
 import CardHeader from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import TopRated from "../../components/Slider/TopRated";
@@ -23,14 +24,16 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="home">
       <Navbar />
       {trendData.slice(randomData - 1, randomData).map((movie, index) => (
         <CardHeader key={index} movie={movie} />
       ))}
-      <Trends movie={trendData} />
-      <TopRated />
-      <TvShow />
+      <div className="slider-container">
+        <Trends movie={trendData} />
+        <TopRated />
+        <TvShow />
+      </div>
       <Footer />
     </div>
   );

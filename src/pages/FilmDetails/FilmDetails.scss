@@ -16,6 +16,24 @@
         flex-wrap: wrap;
         gap: 20px;
         padding-bottom: 20vh;
+
+        .youtube {
+            position: relative;
+            width: 100%;
+            max-width: 750px;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+          }
+          
+          .youtube iframe,
+          .youtube object,
+          .youtube embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
         
         .data-container{
             max-width: 550px;

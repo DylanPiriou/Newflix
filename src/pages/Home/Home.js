@@ -18,7 +18,7 @@ export default function Home() {
       )
       .then((res) => {
         setTrendData(res.data.results);
-        setRandomData(Math.min(Math.floor(Math.random() * res.data.results.length) + 2, 20));
+        setRandomData(Math.min(Math.floor(Math.random() * res.data.results.length) + 1, 20));
       });
   }, []);
 

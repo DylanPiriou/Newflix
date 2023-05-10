@@ -78,7 +78,8 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 20px;
     color: whitesmoke;
     padding: 20px;
     background: rgb(24, 24, 24);
@@ -86,6 +87,7 @@
 
     .trend-wrapper,
     .genres-wrapper{
+        min-width: 250px;
         flex: 1;
         display: flex;
         flex-direction: column;

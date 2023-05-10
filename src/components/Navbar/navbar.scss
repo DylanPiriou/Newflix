@@ -4,10 +4,13 @@
     position: fixed;
     top: 0;
     width: 100%;
+    max-width: 1950px;
     height: 10vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 0 900px;
+    flex-wrap: wrap;
     padding: 0 8vw;
     z-index: 999;
 

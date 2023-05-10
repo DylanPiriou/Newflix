@@ -19,7 +19,6 @@ export default function Film() {
   };
 
   const onReady = (event) => {
-    // Vous pouvez utiliser l'objet event pour contrôler la vidéo
     event.target.pauseVideo();
   };
 

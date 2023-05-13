@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import "./navbar.scss"
+import "./Navbar.scss"
 
 export default function Navbar() {
+  const [scrollPos, setScrollPos] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPos(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    }
+  }, []);
+
+  const backgroundColor = scrollPos > 100 ? "black" : "transparent";
 
   return (
-    <div className="navbar">
+    <div className="navbar" style={{backgroundColor}}>
       <NavLink className="home-title" to="/">
         New<span>flix</span>
       </NavLink>

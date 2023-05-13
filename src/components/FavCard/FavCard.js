@@ -12,7 +12,7 @@ export default function FavCard({ film, message }) {
 
     return (
         <div className="fav-card-container">
-            <Link className="fav-card" to={`/${film.id}`} state={{ film }}>
+            <Link className="fav-card" to={`/film/${film.id}`} state={{ film }}>
                     <img
                         src={
                             film.poster_path

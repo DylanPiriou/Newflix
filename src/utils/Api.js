@@ -21,7 +21,7 @@ export const getTopRatedMovies = () => {
 }
 
 export const getTvShows = () => {
-    return fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=2e0a9e72249514e45f19f77ee9930761&language=en-US&page=1`).then(res => res.json())
+    return fetch(`https://api.themoviedb.org/3/tv/popular?api_key=2e0a9e72249514e45f19f77ee9930761&language=en-US&page=1`).then(res => res.json())
 }
 
 export const getTrendMovies = () => {

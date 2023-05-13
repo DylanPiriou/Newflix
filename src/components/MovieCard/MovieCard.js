@@ -5,7 +5,7 @@ import "./MovieCard.scss";
 export default function MovieCard({ film }) {
 
     return (
-        <Link to={`/${film.id}`} state={{ film }} className="movie-card">
+        <Link to={`/film/${film.id}`} state={{ film }} className="movie-card">
             <img
                 src={
                     "https://image.tmdb.org/t/p/original/" + film.poster_path

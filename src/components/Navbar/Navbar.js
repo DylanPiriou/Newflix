@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import "./Navbar.scss"
+import "./navbar.scss"
 
 export default function Navbar() {
   const [scrollPos, setScrollPos] = useState(0);

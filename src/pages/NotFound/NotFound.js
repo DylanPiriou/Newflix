@@ -7,10 +7,8 @@ export default function NotFound() {
     <>
       <Navbar />
       <div className="not-found">
-        <img
-          src="./imgs/Oops! 404 Error with a broken robot-cuate.png"
-          alt="404 img"
-        />
+        <span>404</span>
+        <p>Oops... Impossible de trouver la page.</p>
       </div>
     </>
   );

@@ -18,7 +18,7 @@ export default function Home() {
       setRandomData(Math.min(Math.floor(Math.random() * data.results.length) + 1, 20));
     })
   }, []);
-  
+
   return (
     <div className="home">
       <Navbar />

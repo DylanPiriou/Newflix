@@ -15,9 +15,10 @@ export default function Find() {
   // Affichage des résultats
   useEffect(() => {
     if (genreId) {
+      setSearchData("");
       getGenreMoviesById(genreId).then(data => {
         setObjData(data.results);
-        setIsGenreSelected(true);
+        setIsGenreSelected(false);
       })
     } else {
     searchMovies(searchData).then(data => {

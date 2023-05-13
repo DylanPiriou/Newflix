@@ -1,17 +1,13 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./Slider.scss";
 import MovieCard from "../MovieCard/MovieCard";
+import { getTopRatedMovies } from "../../utils/Api";
 
 export default function TopRated() {
   const [topRatedData, setTopRatedData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=2e0a9e72249514e45f19f77ee9930761&language=en-US&page=1`
-      )
-      .then((res) => setTopRatedData(res.data.results));
+    getTopRatedMovies().then((data) => setTopRatedData(data.results));
   }, []);
 
   return (

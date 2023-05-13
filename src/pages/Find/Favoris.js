@@ -1,9 +1,9 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import FavCard from "../../components/FavCard/FavCard";
+import { getFavMovies } from "../../utils/Api";
 
 export default function Favoris() {
   const [listData, setListData] = useState([]);
@@ -12,14 +12,7 @@ export default function Favoris() {
     let moviesId = window.localStorage.favourites
       ? JSON.parse(window.localStorage.favourites)
       : [];
-
-    for (let i = 0; i < moviesId.length; i++) {
-      axios
-        .get(
-          `https://api.themoviedb.org/3/movie/${moviesId[i]}?api_key=2e0a9e72249514e45f19f77ee9930761`
-        )
-        .then((res) => setListData((listData) => [...listData, res.data]));
-    }
+    getFavMovies(moviesId).then(data => setListData(data));
   }, []);
 
   const handleDelete = () => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import "./Like.scss";
-import useLocalStorage from "../useLocalStorage";
+import useLocalStorage from "../../utils/useLocalStorage";
 
 export default function Like({ film, message }) {
 
@@ -65,8 +65,10 @@ export default function Like({ film, message }) {
     message.current.style.background = color;
     message.current.style.padding = "10px";
     setTimeout(() => {
-      message.current.innerHTML = null;
-      message.current.style.padding = "0";
+      if(message.current){
+        message.current.innerHTML = null;
+        message.current.style.padding = "0";
+      }
     }, 1000);
   }
 

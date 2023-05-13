@@ -1,18 +1,13 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import "./Slider.scss";
+import { getTvShows } from "../../utils/Api";
 
 export default function TvShow() {
   const [tvShowData, setTvShowData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(
-        `
-        https://api.themoviedb.org/3/tv/popular?api_key=2e0a9e72249514e45f19f77ee9930761&language=en-US&page=1`
-      )
-      .then((res) => setTvShowData(res.data.results));
+    getTvShows().then((data) => setTvShowData(data.results));
   }, []);
 
   return (

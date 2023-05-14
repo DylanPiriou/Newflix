@@ -19,7 +19,7 @@ export default function Film() {
   if(name === `/film/${film.id}`){
     document.title = `${film.title ? film.title : film.name} — Newflix`
   } 
-  
+
   const opts = {
     height: '490',
     width: '840',
@@ -50,7 +50,7 @@ export default function Film() {
         <Navbar />
         <CardHeader movie={film} />
         <div className="overview-wrapper">
-          {/* <YouTube className="youtube" videoId={id} opts={opts} onReady={onReady} /> */}
+          <YouTube className="youtube" videoId={id} opts={opts} onReady={onReady} />
           <div className="data-container">
             <h3>Date de sortie</h3>
             <span>{film.release_date ? film.release_date.split("-").reverse().join("/") : film.first_air_date.split("-").reverse().join("/")}</span>

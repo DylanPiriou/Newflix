@@ -11,7 +11,7 @@ function App() {
   const name = location.pathname
   console.log(name)
   if(name === "/"){
-    document.title = `Home — Newflix`;
+    document.title = `Accueil — Newflix`;
   } else if (name === "/favoris"){
     document.title = `Favoris — Newflix`;
   } else if(name === "/rechercher"){

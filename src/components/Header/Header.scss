@@ -41,27 +41,32 @@
         justify-content: center;
         gap: 30px;
     
-        & h1{
+        h1{
             font-size: clamp(2.5rem, 5vw, 5rem);
             letter-spacing: 3px;
             color: whitesmoke;
         }
 
-        & button{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            background: none;
-            outline: 2px solid crimson;
-            color: whitesmoke;
-            cursor: pointer;
+        a{
+            text-decoration: none;
 
-            &:hover{
-                outline: 2px solid whitesmoke;
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                border: none;
+                padding: 15px 30px;
+                border-radius: 50px;
+                background: none;
+                outline: 2px solid crimson;
+                color: whitesmoke;
+                text-decoration: none;
+                cursor: pointer;
+    
+                &:hover{
+                    outline: 2px solid whitesmoke;
+                }
             }
         }
     }

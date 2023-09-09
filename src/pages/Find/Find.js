@@ -21,11 +21,11 @@ export default function Find() {
         setIsGenreSelected(false);
       })
     } else {
-    searchMovies(searchData).then(data => {
-      setObjData(data.results);
-      setIsGenreSelected(false);
-    })
-  }
+      searchMovies(searchData).then(data => {
+        setObjData(data.results);
+        setIsGenreSelected(false);
+      })
+    }
   }, [genreId, searchData]);
 
   // Récpérer toutes les trends dans la modale
@@ -78,12 +78,12 @@ export default function Find() {
           />
           {isFocused &&
             <SearchModal
-            searchBox={searchBox}
-            trendData={trendData}
-            setSearchData={setSearchData}
-            setGenreId={setGenreId}
-            setIsFocused={setIsFocused}
-            genresData={genresData}
+              searchBox={searchBox}
+              trendData={trendData}
+              setSearchData={setSearchData}
+              setGenreId={setGenreId}
+              setIsFocused={setIsFocused}
+              genresData={genresData}
             />
           }
         </div>

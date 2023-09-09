@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { getRandomMovie, getTopRatedMovies, getTvShows } from "../../utils/Api";
 import Slider from "../../components/Slider/Slider";
+import Select from "../../components/Select/Select";
 
 export default function Home() {
   const [trendData, setTrendData] = useState([]);
@@ -21,6 +22,16 @@ export default function Home() {
     getTvShows().then((data) => setTvShowData(data.results));
   }, []);
 
+  const [users, setUsers] = useState()
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(json => {
+        setUsers(json.map(x => x.name))
+        console.log(users.map(x => x))
+      })
+  }, [])
+
   return (
     <div className="home">
       <Navbar />
@@ -28,9 +39,10 @@ export default function Home() {
         <CardHeader key={index} movie={movie} />
       ))}
       <div className="slider-container">
-        <Slider data={trendData} title={"Tendances cette semaine"}/>
-        <Slider data={topRatedData} title={"Les mieux notés"}/>
-        <Slider data={tvShowData} title={"Les séries Tv populaires"}/>
+        <Select users={users} />
+        <Slider data={trendData} title={"Tendances cette semaine"} />
+        <Slider data={topRatedData} title={"Les mieux notés"} />
+        <Slider data={tvShowData} title={"Les séries Tv populaires"} />
       </div>
       <Footer />
     </div>
